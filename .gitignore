@@ -5,12 +5,13 @@
 
 # PDF output - usually a bad idea to keep this in Git
 *.pdf
+*.fls
 
 # Latexmk
 *.fdb_latexmk
 
 # SyncTeX
-*.synctex.gz
+*.synctex*
 
 # LaTeX Beamer
 *.snm
