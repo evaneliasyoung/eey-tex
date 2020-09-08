@@ -3,13 +3,13 @@
 % @brief     Homework assignment template.
 % @author    Evan Elias Young
 % @date      2020-09-02
-% @date      2020-09-04
+% @date      2020-09-08
 % @copyright Copyright 2020 Evan Elias Young. All rights reserved.
 %%%
 
 % #region Metadata
-\def\fileversion{0.1.0}
-\def\filedate{2020-09-04}
+\def\fileversion{0.1.1}
+\def\filedate{2020-09-08}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{eey-homework}[\filedate\space Version \fileversion\space by \fileauth]
@@ -156,8 +156,8 @@
 \SetCommentSty{eeyhw@commentsty}
 
 % #region New Style Macros
-\newcommand{\eeyhw@hint}[1]{\footnotesize{\textbf{\textcolor{red}{[Hint: #1]}}}}
-\newcommand{\eeyhw@note}[1]{\textbf{Note}: #1}
+\newcommand{\eeyhwhint}[1]{\footnotesize{\textbf{\textcolor{red}{[Hint: #1]}}}}
+\newcommand{\eeyhwnote}[1]{\textbf{Note}: #1}
 % #endregion
 
 % #region Useful Macros
@@ -165,7 +165,7 @@
 \newcommand*{\N}{\mathbb N}
 \newcommand*{\Z}{\mathbb Z}
 \newcommand*{\Q}{\mathbb Q}
-\newcommand{\eeyfigure}[1]{
+\newcommand{\eeyhwfigure}[1]{
     \begin{figure}[!htb]
         #1
     \end{figure}
