@@ -8,7 +8,7 @@
 %%%
 
 % #region Metadata
-\def\fileversion{0.1.1}
+\def\fileversion{0.2.0}
 \def\filedate{2020-09-08}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
@@ -24,11 +24,10 @@
 }
 
 \DeclareStringOption[missouri university of science and technology]{university}
-\DeclareStringOption[Assignment]{hwtype}
 \DeclareStringOption[Chem]{subject}
 \DeclareStringOption[1310]{course}
 \DeclareStringOption[101]{section}
-\DeclareStringOption[1]{hwname}
+\DeclareStringOption[Assignment 1]{assignment}
 \DeclareStringOption[Evan Elias Young]{name}
 \DeclareStringOption[umrsid@mst.edu]{email}
 
@@ -57,9 +56,9 @@
 \RequirePackage{booktabs}
 \RequirePackage[tworuled, linesnumbered, noend, noline]{algorithm2e}
 \RequirePackage{xcolor}
-\RequirePackage{trimspaces, xstring}
+\RequirePackage{trimspaces}
+\RequirePackage{xstring}
 \RequirePackage{hyperref}
-\RequirePackage{xcolor}
 \RequirePackage[en-US]{datetime2}
 
 \definecolor{medium-blue}{rgb}{0.1294,0.5882,0.9529}
@@ -96,10 +95,7 @@
         \fi%
     \fi%
     \expandafter\trim@spaces\expandafter{\eeyhw@temp}%
-}
-\newcommand{\eeyhw@getTitle}{%
-    \eeyhw@hwtype\space \eeyhw@hwname%
-}
+    }
 \newcommand{\eeyhw@getAuthorByIndex}[1]{%
     \eeyhw@sub{\eeyhw@name}{;}{#1}{\arabic{eeyhw@numAuthors}}~\\%
     \texttt{\eeyhw@sub{\eeyhw@email}{;}{#1}{\arabic{eeyhw@numAuthors}}}%
@@ -116,7 +112,7 @@
 }
 \newcommand{\eeyhw@onTitle}{%
     \vspace{-2\baselineskip}%
-    \textsc{\eeyhw@getTitle}%
+    \eeyhw@assignment%
 }
 \newcommand{\eeyhw@onBeginDocument}{%
     \maketitle%

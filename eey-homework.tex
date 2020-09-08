@@ -1,0 +1,134 @@
+\documentclass[
+    subject = {{Comp Sci}},
+    course = {{1570}},
+    section = {{101}},
+    assignment = {{Assignment 10 \\ Final Project}},
+    name = {{Student One ; Student Two}},
+    email = {{stosid@mst.edu ; sttsid@mst.edu}}
+]{eey-homework}
+
+\usepackage{blindtext}
+
+\begin{document}
+
+\section{Fine Print}
+\textbf{Due:} Wednesday, May 6, 2020, at noon, 100 points \eeyhwnote{this accounts for 10\% or your final grade.}\hfill\break
+
+For this assignment, you will submit multiple files containing a program written in C++.
+You know how to use the submit program by now; I needn't tell you.
+\textbf{
+    Also, for this assignment, you are permitted to work with a partner.
+    Yah, two of you can work together on this program.
+    The only rule is that you both have to have the same instructor, Price or Brown.
+    I'm not sure how you will do this given the pandemic situation we are in, but you may do so if you wish.
+    It is not required, but we encourage it.
+    The only other rule is that you both code - no spongers!!
+}
+
+\section{Background}
+homework \#9.
+This gives you the basic foundation upon which to build your program.
+You have the school, janitor, and lunch classes.
+You are going to add another class. It is the: \textbf{drink class:}
+\begin{itemize}
+    \item[--]{member variables}
+    \begin{itemize}
+        \item{a member string for description (whiskey or coffee)}
+        \item{a float member for "effect". The value of this member will be determined for each object by the constructor. It will be interpreted this way: if the value is negative, it is coffee; if it is positive, it is whiskey. Zero is an unacceptable value. This value will affect its consumer by increasing or decreasing his (the janitor, of course) bac by that amount.}
+    \end{itemize}
+    \item[--]{member function}
+    \begin{itemize}
+        \item{A constructor that will assign to its "effect" variable at random from the following intervals: [-.010, -0.001] and [0.05, 0.10]. \eeyhwhint{randomly choose positve or negatve first. Then choose from the appropriate interval.} This will obviously determine the name of the drink, too.}
+    \end{itemize}
+\end{itemize}
+
+\section{Details}
+Thus, to start a simulation, you must declare a "clean" school (no stuff in it).
+Then declare a janitor and place it in the center of the school.
+Then declare a lunch and place at some random place in the school, and not on top of the janitor of course.
+Likewise, scatter  randomly the required number of traps and drinks.
+How you do all this is up to you.
+You might even want to have a school constructor do a lot of this work.
+Think about it.
+Once everything is in place, get your actors (the lunch and the janitor) moving.\hfill\break
+
+So what's this "config file" business? Well, you have had many constants in your programs in the past, and you will certainly have constants in this program.
+But one of the reasons to have them is that they may be parameters to change as you run your program in different ways.
+In order to change the parameters, though, you have to change the constants and then recompile your program.
+This works, but there is another way.
+For parameters that are going to change enough times that you are annoyed by recompiling, you can put those values in a "config.dat" file, just like a data file.
+Then, for each different run of your program, you can just open the file and change one of the parameters, then run again.
+You don't have to recompile.
+This is not a big deal with little programs like ours, but some programs can take hours to compile!\hfill\break
+
+This is the number of days (simulation calls), grid size, num drinks, num traps, window frequency.
+Keep this order.
+Do not put comments or anything else in the file.
+Then, in your main function you will create a stream to connect to the config file and stream into local variables those parameters.
+Cool, eh? (Yes, cool.)
+All other constant-kinda-stuff should be constants in an appropriate header file. By the way, make the symbol for a lunch a constant 'L' and put it in a header.
+That way you can code janitor to look for a specific constant symbol.
+
+\section{Details Upon Details}
+There is the issue of the drinks.
+Clearly, you will have two kinds of drinks, coffee and whiskey.
+Since the floor in the school is a grid of chars, you can't actually place different drink objects out there.
+That would require really advanced c++ techniques - c+++++ concepts! So, you're going to do this in a novel way.
+You see in the pseudo-code in the sim function that you declare an array of drinks of CONSTANT size.
+You must do that, as you know, because the compiler must know the size of an array at compile time.
+That \verb|MAX_DRINKS| can be set by you to something like 20.
+But, you will only use a subset of them.
+That value is the value read in from the config file: num drinks.
+So, you will scatter at random that number of d's over the grid.
+Then, whenever the janitor lands on a drink, he will choose the (num\_drink-1)th drink from the array of drinks to drink and be affected by, and then decrement num drinks.
+In this way there is a 1-1 correspondence between the d's on the grid and the drinks in the array.
+Also, you must understand this.
+When you declare an array of user-defined objects (like drinks), the compiler will automatically call the default constructor for each of those objects in the array.
+So, you need to build into your own default constructor the random assignment of "effect" member for that drink.
+Finally, in my pseudo-code, I have the array of drinks outside the school class.
+You might want to include the array of drinks as part of the school class.
+This decision is up to you.\hfill\break
+
+The janitor will start with a bac of 0.05.
+At this level, he is considered sober.
+He will move one step at a time with semi-intelligence.
+That is, his step function will be passed the lunch object so that he can "see" where it is.
+Knowing its location, he can move toward the quadrant it's located in.
+Once his bac reaches "drunk" threshold (0.08), he reverts back to random steps.
+If his bac reaches death level (0.25), he dies and that run and the simulation ends.
+No matter how the janitor moves (randomly or not):
+
+\begin{itemize}
+    \item if he hits a wall, he doesn't move but does increment his bruise count.
+    \item if he hits a window, he falls out.
+    \item if he lands on drink, (he) removes the char from the array and "drinks" the drink.
+    \item if he lands on a sandwich trap, he destroys it (thus you remove that char) and gets 5 bruises.
+\end{itemize}
+
+The lunch will move about randomly.
+If, however, it lands on a cell with a sandwich trap, it has to remain there until the end of the day.
+In that case, remove the symbol for trap and replace it with the L.
+You might want to include in your lunch class a member variable to indicate whether or not it is trapped.
+This and other design decisions are yours to make.
+If the lunch hits anything else (including the janitor! (stupid lunch)) it doesn't move anywhere that turn.
+
+\section{Optional}
+Now, after you get all this stuff done, you have the option to add "your own".
+That's right, if you can think of fun stuff to add to this, do so.
+You will be judged on how much you make your instructor laugh.
+If you really impress them with something innovative and goofy, then maybe they'll give you points for it.
+Good luck!!\hfill\break
+\textbf{When you submit, submit under only one name} and be sure to include in your comment header the names of your partners on this project.
+
+\section{Addendum}
+The code you submit should output to the screen the first simulation (first day of chasing a sandwich) ONLY.
+That is, after each move by the janitor or the sandwich, output to the screen the 2-D array representing the school (output the school).
+If you make no provision to "slow this down", then all the movement by the actors will go by so fast it will be imperceptible.
+You can make this appear on the screen so that you can watch the motion by including a few simple lines of code.
+After your output statement, put this line of code: \verb|usleep(200000);| This pauses the processing for a fifth of a second.
+You will have to \verb|#include <unistd.h>| for this to work.
+Try this now with what you have.
+Make a for loop that has the janitor step randomly 25 times and put this code in and you can watch him walk about.
+And remember, do this ONLY for the first day; the rest of the simulations should NOT be output.
+
+\end{document}
