@@ -103,10 +103,7 @@
 \newcommand{\eeyhw@getAuthorByIndex}[1]{%
     \eeyhw@sub{\eeyhw@name}{;}{#1}{\arabic{eeyhw@numAuthors}}~\\%
     \texttt{\eeyhw@sub{\eeyhw@email}{;}{#1}{\arabic{eeyhw@numAuthors}}}%
-    \ifnum#1 < \arabic{eeyhw@numAuthors}%
-        \relax%
-        \eeyhw@getAuthorByIndex{\numexpr#1 + 1\relax}%
-    \fi%
+    \ifnum#1 < \arabic{eeyhw@numAuthors}\relax\and\eeyhw@getAuthorByIndex{\numexpr#1 + 1\relax}\fi
 }
 
 % #region Events
