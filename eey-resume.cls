@@ -3,13 +3,13 @@
 % @brief     Resume template.
 % @author    Evan Elias Young
 % @date      2020-09-09
-% @date      2020-09-09
+% @date      2020-09-11
 % @copyright Copyright 2020 Evan Elias Young. All rights reserved.
 %%%
 
 % #region Metadata
-\def\fileversion{0.1.0}
-\def\filedate{2020-09-09}
+\def\fileversion{0.1.1}
+\def\filedate{2020-09-11}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{eey-resume}[\filedate\space Version \fileversion\space by \fileauth]
@@ -39,8 +39,7 @@
 \RequirePackage[
     letterpaper,
     headheight = 0pt,
-    margin = 0.75in,
-    tmargin = \dimexpr 0.75in - 10pt \relax
+    margin = 0.75in
 ]{geometry}
 \RequirePackage{trimspaces}
 \RequirePackage{xstring}
@@ -73,21 +72,22 @@
 
 % #region Events
 \newcommand{\eeyrs@onAuthor}{%
-    \normalsize\noindent%
-    \begin{minipage}[t]{0.30\textwidth}
+    \normalsize%
+    \hspace{-0.125in}
+    \begin{minipage}[t]{2.125in}%
         \underline{School Address}\\
         \eeyrs@substring{\eeyrs@schooladdr}{;}{1}{3}\\
         \eeyrs@substring{\eeyrs@schooladdr}{;}{2}{3}\\
         \eeyrs@substring{\eeyrs@schooladdr}{;}{3}{3}
     \end{minipage}%
-    \begin{minipage}[t]{0.40\textwidth}~\end{minipage}%
-    \begin{minipage}[t]{0.30\textwidth}
+    \begin{minipage}[t]{2.75in}~\end{minipage}
+    \begin{minipage}[t]{2.125in}
         \underline{Home Address}\\
         \eeyrs@substring{\eeyrs@homeaddr}{;}{1}{3}\\
         \eeyrs@substring{\eeyrs@homeaddr}{;}{2}{3}\\
         \eeyrs@substring{\eeyrs@homeaddr}{;}{3}{3}
     \end{minipage}
-    \vspace{-0.5\baselineskip}
+    \vspace{\dimexpr -1in / 8 \relax}
 }
 \newcommand{\eeyrs@onTitle}{%
     \eeyrs@pull\eeyrs@pull%
@@ -101,6 +101,7 @@
     \eeyrs@pull\noindent
     \rule{\textwidth}{0.5pt}
     \eeyrs@pull
+    \vspace{\dimexpr 1in / 16\relax}
 }
 \title{\eeyrs@onTitle}
 \author{\eeyrs@onAuthor}
