@@ -8,7 +8,7 @@
 %%%
 
 % #region Metadata
-\def\fileversion{0.1.1}
+\def\fileversion{0.2.0}
 \def\filedate{2020-09-11}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
@@ -47,6 +47,7 @@
 \RequirePackage{setspace}
 
 \setlist{nosep}
+\setlist[itemize]{noitemsep, leftmargin=*}
 \renewcommand{\familydefault}{phv}
 % #endregion
 
@@ -111,15 +112,6 @@
 % #region New Macros
 \newcommand{\eeyrs@push}{\vspace{0.75\baselineskip}}
 \newcommand{\eeyrs@pull}{\vspace{-0.75\baselineskip}}
-\newcommand{\eeyrssection}[2]{%
-    \noindent
-    \begin{minipage}[t]{1in}
-        #1
-    \end{minipage}%
-    \begin{minipage}[t]{6in}
-        #2
-    \end{minipage}
-}
 
 \newcommand{\eeyrstwoone}[2]{
     \noindent
@@ -143,5 +135,19 @@
     \vspace{-0.5\baselineskip}
     #5
     \eeyrs@push
+}
+% #endregion
+
+% #region Section Environment
+\newenvironment{eeyrssection}[1]%
+{%
+    \noindent
+    \begin{minipage}[t]{1in}%
+        #1
+    \end{minipage}%
+    \begin{minipage}[t]{6in}
+}%
+{%
+    \end{minipage}
 }
 % #endregion
