@@ -8,19 +8,18 @@
 %%%
 
 % #region Metadata
-\def\fileversion{0.2.2}
+\def\fileversion{0.2.3}
 \def\filedate{2025-08-27}
 \def\fileauth{Evan Elias Young}
-\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{eey-homework}[\filedate\space Version \fileversion\space by \fileauth]
 % #endregion
 
 % #region Argument Parsing
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
-  family = eeyhw,
-  prefix = eeyhw@,
-  setkeys = \kvsetkeys
+    family = eeyhw,
+    prefix = eeyhw@,
+    setkeys = \kvsetkeys
 }
 
 \DeclareStringOption[missouri university of science and technology]{university}
@@ -63,7 +62,14 @@
 
 \definecolor{medium-blue}{rgb}{0.1294,0.5882,0.9529}
 
-\hypersetup{colorlinks, urlcolor={medium-blue}}
+\hypersetup{
+    colorlinks=true,
+    urlcolor={medium-blue},
+    linkcolor={medium-blue},
+    citecolor={medium-blue},
+    pdftitle={\eeyhw@assignment},
+    pdfauthor={\eeyhw@name}
+}
 \renewcommand{\thefootnote}{[\roman{footnote}]}
 % #endregion
 
