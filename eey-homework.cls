@@ -8,7 +8,7 @@
 %%%
 
 % #region Metadata
-\def\fileversion{0.2.1}
+\def\fileversion{0.2.2}
 \def\filedate{2025-08-27}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
@@ -147,11 +147,6 @@
 % \DontPrintSemicolon
 % \newcommand\eeyhw@commentsty[1]{\footnotesize\ttfamily\textcolor{gray}{#1}}
 % \SetCommentSty{eeyhw@commentsty}
-
-% #region New Style Macros
-\newcommand{\eeyhwhint}[1]{\footnotesize{\textbf{\textcolor{red}{[Hint: #1]}}}}
-\newcommand{\eeyhwnote}[1]{\textbf{Note}: #1}
-% #endregion
 
 % #region Useful Macros
 \newcommand*{\R}{\mathbb R}
