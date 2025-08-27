@@ -3,13 +3,13 @@
 % @brief     Homework assignment template.
 % @author    Evan Elias Young
 % @date      2020-09-02
-% @date      2020-09-08
-% @copyright Copyright 2020 Evan Elias Young. All rights reserved.
+% @date      2025-08-27
+% @copyright Copyright 2020-2025 Evan Elias Young. All rights reserved.
 %%%
 
 % #region Metadata
-\def\fileversion{0.2.0}
-\def\filedate{2020-09-08}
+\def\fileversion{0.2.1}
+\def\filedate{2025-08-27}
 \def\fileauth{Evan Elias Young}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{eey-homework}[\filedate\space Version \fileversion\space by \fileauth]
@@ -139,14 +139,14 @@
 \author{\eeyhw@onAuthor}
 \AtBeginDocument{\eeyhw@onBeginDocument}
 
-\let\oldnl\nl
-\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
-\newcommand{\eeyhw@capsty}[1]{\!}
-\SetAlCapSty{eeyhw@capsty}
-\SetAlCapNameFnt{\scshape\hspace{.69em}}
-\DontPrintSemicolon
-\newcommand\eeyhw@commentsty[1]{\footnotesize\ttfamily\textcolor{gray}{#1}}
-\SetCommentSty{eeyhw@commentsty}
+% \let\oldnl\nl
+% \newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}
+% \newcommand{\eeyhw@capsty}[1]{\!}
+% \SetAlCapSty{eeyhw@capsty}
+% \SetAlCapNameFnt{\scshape\hspace{.69em}}
+% \DontPrintSemicolon
+% \newcommand\eeyhw@commentsty[1]{\footnotesize\ttfamily\textcolor{gray}{#1}}
+% \SetCommentSty{eeyhw@commentsty}
 
 % #region New Style Macros
 \newcommand{\eeyhwhint}[1]{\footnotesize{\textbf{\textcolor{red}{[Hint: #1]}}}}
