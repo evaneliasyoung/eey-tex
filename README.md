@@ -1,6 +1,7 @@
 # eey-tex
 
-Useful LaTex document classes
+Useful LaTeX document classes.
 
 ## eey-homework
-A class for doing homework at my university
+
+A class for doing homework assignments.
